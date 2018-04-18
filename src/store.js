@@ -17,8 +17,15 @@ export default new Vuex.Store({
     //Added States
     genre: '',
     setting: '',
+    main_character_name: '',
+    main_character_description: '',
+    main_conflict: '',
+    theme: '',
+    beginning: '',
+    middle: '',
+    ending: '',
 
-
+//look up vue developer extension
 
 
   },
@@ -32,6 +39,13 @@ export default new Vuex.Store({
     //Added getters
     genre: state => state.genre,
     setting: state => state.setting,
+    main_character_name: state => state.main_character_name,
+    main_character_description: state => state.main_character_description,
+    main_conflict: state => state.main_conflict,
+    theme: state => state.theme,
+    beginning: state => state.beginning,
+    middle: state => state.middle,
+    ending: state => state.ending,
 
 
   },
@@ -60,6 +74,35 @@ export default new Vuex.Store({
     set_setting (state, setting) {
         state.setting = setting;
     },
+
+    set_main_character_name (state, main_character_name) {
+        state.main_character_name = main_character_name;
+    },
+
+    set_main_character_description (state, main_character_description) {
+        state.main_character_description = main_character_description;
+    },
+
+    set_main_conflict (state, main_conflict) {
+        state.main_conflict = main_conflict;
+    },
+
+    set_theme (state, theme) {
+        state.theme = theme;
+    },
+
+    set_beginning (state, begining) {
+        state.beginning = beginning;
+    },
+
+    set_middle (state, middle) {
+        state.middle = middle;
+    },
+
+    set_ending (state, ending) {
+        state.ending = ending;
+    },
+
 
 
   },
@@ -111,7 +154,7 @@ export default new Vuex.Store({
         //genre
 
         get_genre(context) {
-            axios.get("/api/users/" + context.state.user.id + "/genre").then(response => {
+            axios.get("/api/users/" + context.state.user.id + "/genre/").then(response => {
                 context.commit('set_genre',response.data.outline.genre);
             }).catch(err => {
                 console.log("get_genre failed:",err);
@@ -119,14 +162,161 @@ export default new Vuex.Store({
         },
 
         enter_genre(context,genre) {
-            axios.post("/api/users/" + context.state.user.id + "/genre",genre).then(response => {
+            axios.post("/api/users/" + context.state.user.id + "/genre/",genre).then(response => {
                 return context.dispatch('get_genre');
             }).catch(err => {
                 console.log("enter_genre failed:",err);
             });
-        }
+        },
 
 
         //Setting
+
+
+        get_setting(context) {
+            axios.get("/api/users/" + context.state.user.id + "/setting/").then(response => {
+                context.commit('set_setting',response.data.outline.setting);
+            }).catch(err => {
+                console.log("get_setting failed:",err);
+            });
+        },
+
+        enter_setting(context,setting) {
+            axios.post("/api/users/" + context.state.user.id + "/setting/",setting).then(response => {
+                return context.dispatch('get_setting');
+            }).catch(err => {
+                console.log("enter_setting failed:",err);
+            });
+        },
+
+
+
+        //main_character_name
+
+        get_main_character_name(context) {
+            axios.get("/api/users/" + context.state.user.id + "/main_character_name/").then(response => {
+                context.commit('set_main_character_name',response.data.outline.main_character_name);
+            }).catch(err => {
+                console.log("get_main_character_name failed:",err);
+            });
+        },
+
+        enter_main_character_name(context,main_character_name) {
+            axios.post("/api/users/" + context.state.user.id + "/main_character_name/",main_character_name).then(response => {
+                return context.dispatch('get_main_character_name');
+            }).catch(err => {
+                console.log("enter_main_character_name failed:",err);
+            });
+        },
+
+        //main_character_description
+
+        get_main_character_description(context) {
+            axios.get("/api/users/" + context.state.user.id + "/main_character_description/").then(response => {
+                context.commit('set_main_character_description',response.data.outline.main_character_description);
+            }).catch(err => {
+                console.log("get_main_character_description failed:",err);
+            });
+        },
+
+        enter_main_character_description(context,main_character_description) {
+            axios.post("/api/users/" + context.state.user.id + "/main_character_description/",main_character_description).then(response => {
+                return context.dispatch('get_main_character_description');
+            }).catch(err => {
+                console.log("enter_main_character_description failed:",err);
+            });
+        },
+
+        //main_conflict
+
+        get_main_conflict(context) {
+            axios.get("/api/users/" + context.state.user.id + "/main_conflict/").then(response => {
+                context.commit('set_main_conflict',response.data.outline.main_conflict);
+            }).catch(err => {
+                console.log("get_main_conflict failed:",err);
+            });
+        },
+
+        enter_main_conflict(context,main_character_description) {
+            axios.post("/api/users/" + context.state.user.id + "/main_conflict/",main_conflict).then(response => {
+                return context.dispatch('get_main_conflict');
+            }).catch(err => {
+                console.log("enter_main_conflict failed:",err);
+            });
+        },
+
+
+        //Theme
+
+        get_theme(context) {
+            axios.get("/api/users/" + context.state.user.id + "/theme/").then(response => {
+                context.commit('set_theme',response.data.outline.theme);
+            }).catch(err => {
+                console.log("get_theme failed:",err);
+            });
+        },
+
+        enter_theme(context,theme) {
+            axios.post("/api/users/" + context.state.user.id + "/theme/",theme).then(response => {
+                return context.dispatch('get_theme');
+            }).catch(err => {
+                console.log("enter_theme failed:",err);
+            });
+        },
+
+        //beginning
+
+        get_beginning(context) {
+            axios.get("/api/users/" + context.state.user.id + "/beginning/").then(response => {
+                context.commit('set_theme',response.data.outline.beginning);
+            }).catch(err => {
+                console.log("get_theme failed:",err);
+            });
+        },
+
+        enter_beginning(context,beginning) {
+            axios.post("/api/users/" + context.state.user.id + "/beginning/",beginning).then(response => {
+                return context.dispatch('get_beginning');
+            }).catch(err => {
+                console.log("enter_beginning failed:",err);
+            });
+        },
+
+        //Middle
+
+        get_middle(context) {
+            axios.get("/api/users/" + context.state.user.id + "/middle/").then(response => {
+                context.commit('set_middle',response.data.outline.middle);
+            }).catch(err => {
+                console.log("get_theme failed:",err);
+            });
+        },
+
+        enter_middle(context,middle) {
+            axios.post("/api/users/" + context.state.user.id + "/middle/",middle).then(response => {
+                return context.dispatch('get_middle');
+            }).catch(err => {
+                console.log("enter_middle failed:",err);
+            });
+        },
+
+
+        //ending
+
+        get_ending(context) {
+            axios.get("/api/users/" + context.state.user.id + "/middle/").then(response => {
+                context.commit('set_ending',response.data.outline.ending);
+            }).catch(err => {
+                console.log("get_ending failed:",err);
+            });
+        },
+
+        enter_ending(context,ending) {
+            axios.post("/api/users/" + context.state.user.id + "/ending/",ending).then(response => {
+                return context.dispatch('get_ending');
+            }).catch(err => {
+                console.log("enter_ending failed:",err);
+            });
+        },
     }
 });

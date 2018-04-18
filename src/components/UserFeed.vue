@@ -146,16 +146,72 @@
         data () {
           return {
             new_genre: '',
+            new_setting: '',
+            new_main_character_name: '',
+            new_main_character_description: '',
+            new_main_conflict: '',
+            new_theme: '',
+            new_beginning: '',
+            new_middle: '',
+            new_ending: '',
           }
         },
         computed: {
             genre: function(){
                 return this.$store.getters.genre;
             },
+            setting: function(){
+                return this.$store.getters.setting;
+            },
+            main_character_name: function(){
+                return this.$store.getters.main_character_name;
+            },
+            main_character_description: function(){
+                return this.$store.getters.main_character_description;
+            },
+            main_conflict: function(){
+                return this.$store.getters.main_conflict;
+            },
+            theme: function(){
+                return this.$store.getters.theme;
+            },
+            beginning: function(){
+                return this.$store.getters.beginning;
+            },
+            middle: function(){
+                return this.$store.getters.middle;
+            },
+            ending: function(){
+                return this.$store.getters.ending;
+            },
         },
         methods: {
             enter_genre: function(){
                 this.$store.dispatch('enter_genre', { genre: this.new_genre });
+            },
+            enter_setting: function(){
+                this.$store.dispatch('enter_setting', { setting: this.new_setting});
+            },
+            enter_main_character_name: function(){
+                this.$store.dispatch('enter_main_character_name', { main_character_name: this.new_main_character_name });
+            },
+            enter_main_character_name: function(){
+                this.$store.dispatch('enter_main_character_description', { main_character_description: this.new_main_character_description });
+            },
+            enter_main_conflict: function(){
+                this.$store.dispatch('enter_main_conflict', { main_conflict: this.new_main_conflict });
+            },
+            enter_theme: function(){
+                this.$store.dispatch('enter_theme', { theme: this.new_theme });
+            },
+            enter_beginning: function(){
+                this.$store.dispatch('enter_beginning', { beginning: this.new_beginning });
+            },
+            enter_middle: function(){
+                this.$store.dispatch('enter_middle', { middle: this.new_middle });
+            },
+            enter_ending: function(){
+                this.$store.dispatch('enter_ending', { ending: this.new_ending });
             },
         },
     }

@@ -92,7 +92,6 @@ app.get('/api/users/:id/genre', (req, res)=> {
         res.status(500).json({ error });
     });
 });
-
 //Enter genre
 app.post('/api/users/:id/genre', (req, res) => {
   let id = parseInt(req.params.id);
@@ -110,6 +109,274 @@ app.post('/api/users/:id/genre', (req, res) => {
     res.status(500).json({ error });
   });
 });
+//Get setting
+app.get('/api/users/:id/setting', (req, res)=> {
+    let id = parseInt(req.params.id);
+    knex('outlines').where('user_id',id).first().then(outline => {
+        if (outline === undefined) {
+            res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+            return;
+        }
+        res.status(200).json({outline:outline});
+    }).catch(error => {
+        res.status(500).json({ error });
+    });
+});
+//Enter setting
+app.post('/api/users/:id/setting', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('outlines').where('user_id',id).update({setting: req.body.setting}).then(ids => {
+    return knex('outlines').where('user_id',id).first();
+  }).then(outline => {
+    if (outline === undefined) {
+        res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+        return;
+    }
+    res.status(200).json({outline:outline});
+    return;
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({ error });
+  });
+});
+
+//Get main_character_name
+
+app.get('/api/users/:id/main_character_name', (req, res)=> {
+    let id = parseInt(req.params.id);
+    knex('outlines').where('user_id',id).first().then(outline => {
+        if (outline === undefined) {
+            res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+            return;
+        }
+        res.status(200).json({outline:outline});
+    }).catch(error => {
+        res.status(500).json({ error });
+    });
+});
+//Enter main_character_name
+
+app.post('/api/users/:id/main_character_name', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('outlines').where('user_id',id).update({setting: req.body.main_character_name}).then(ids => {
+    return knex('outlines').where('user_id',id).first();
+  }).then(outline => {
+    if (outline === undefined) {
+        res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+        return;
+    }
+    res.status(200).json({outline:outline});
+    return;
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({ error });
+  });
+});
+
+//Get main_character_description
+
+app.get('/api/users/:id/main_character_description', (req, res)=> {
+    let id = parseInt(req.params.id);
+    knex('outlines').where('user_id',id).first().then(outline => {
+        if (outline === undefined) {
+            res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+            return;
+        }
+        res.status(200).json({outline:outline});
+    }).catch(error => {
+        res.status(500).json({ error });
+    });
+});
+
+//Enter main_character_description
+
+app.post('/api/users/:id/main_character_description', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('outlines').where('user_id',id).update({setting: req.body.main_character_description}).then(ids => {
+    return knex('outlines').where('user_id',id).first();
+  }).then(outline => {
+    if (outline === undefined) {
+        res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+        return;
+    }
+    res.status(200).json({outline:outline});
+    return;
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({ error });
+  });
+});
+
+//Get main_conflict
+
+app.get('/api/users/:id/main_conflict', (req, res)=> {
+    let id = parseInt(req.params.id);
+    knex('outlines').where('user_id',id).first().then(outline => {
+        if (outline === undefined) {
+            res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+            return;
+        }
+        res.status(200).json({outline:outline});
+    }).catch(error => {
+        res.status(500).json({ error });
+    });
+});
+
+//Enter main_conflict
+
+app.post('/api/users/:id/main_conflict', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('outlines').where('user_id',id).update({setting: req.body.main_conflict}).then(ids => {
+    return knex('outlines').where('user_id',id).first();
+  }).then(outline => {
+    if (outline === undefined) {
+        res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+        return;
+    }
+    res.status(200).json({outline:outline});
+    return;
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({ error });
+  });
+});
+
+//Get theme
+
+app.get('/api/users/:id/theme', (req, res)=> {
+    let id = parseInt(req.params.id);
+    knex('outlines').where('user_id',id).first().then(outline => {
+        if (outline === undefined) {
+            res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+            return;
+        }
+        res.status(200).json({outline:outline});
+    }).catch(error => {
+        res.status(500).json({ error });
+    });
+});
+
+//Enter theme
+
+app.post('/api/users/:id/theme', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('outlines').where('user_id',id).update({setting: req.body.theme}).then(ids => {
+    return knex('outlines').where('user_id',id).first();
+  }).then(outline => {
+    if (outline === undefined) {
+        res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+        return;
+    }
+    res.status(200).json({outline:outline});
+    return;
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({ error });
+  });
+});
+
+//Get beginning
+
+app.get('/api/users/:id/beginning', (req, res)=> {
+    let id = parseInt(req.params.id);
+    knex('outlines').where('user_id',id).first().then(outline => {
+        if (outline === undefined) {
+            res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+            return;
+        }
+        res.status(200).json({outline:outline});
+    }).catch(error => {
+        res.status(500).json({ error });
+    });
+});
+
+//Enter beginning
+
+app.post('/api/users/:id/beginning', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('outlines').where('user_id',id).update({setting: req.body.beginning}).then(ids => {
+    return knex('outlines').where('user_id',id).first();
+  }).then(outline => {
+    if (outline === undefined) {
+        res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+        return;
+    }
+    res.status(200).json({outline:outline});
+    return;
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({ error });
+  });
+});
+
+//Get Middle
+
+app.get('/api/users/:id/middle', (req, res)=> {
+    let id = parseInt(req.params.id);
+    knex('outlines').where('user_id',id).first().then(outline => {
+        if (outline === undefined) {
+            res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+            return;
+        }
+        res.status(200).json({outline:outline});
+    }).catch(error => {
+        res.status(500).json({ error });
+    });
+});
+
+//Enter middle
+
+app.post('/api/users/:id/middle', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('outlines').where('user_id',id).update({setting: req.body.middle}).then(ids => {
+    return knex('outlines').where('user_id',id).first();
+  }).then(outline => {
+    if (outline === undefined) {
+        res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+        return;
+    }
+    res.status(200).json({outline:outline});
+    return;
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({ error });
+  });
+});
+
+//Get ending
+
+app.get('/api/users/:id/ending', (req, res)=> {
+    let id = parseInt(req.params.id);
+    knex('outlines').where('user_id',id).first().then(outline => {
+        if (outline === undefined) {
+            res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+            return;
+        }
+        res.status(200).json({outline:outline});
+    }).catch(error => {
+        res.status(500).json({ error });
+    });
+});
+
+//Enter Ending
+
+app.post('/api/users/:id/ending', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('outlines').where('user_id',id).update({setting: req.body.ending}).then(ids => {
+    return knex('outlines').where('user_id',id).first();
+  }).then(outline => {
+    if (outline === undefined) {
+        res.status(404).json({error: "For some reason there isn't a row in the outline table for this user"});
+        return;
+    }
+    res.status(200).json({outline:outline});
+    return;
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({ error });
+  });
+});
+
 
 
 //

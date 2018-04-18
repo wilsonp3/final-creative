@@ -10,6 +10,7 @@
       <input class="narrow" v-model="email" placeholder="Email Address">
       <input class="narrow" type="password" v-model="password" placeholder="Password">
       <button class="alternate" type="submit">Register</button>
+      <h2> NOTE: You need to login on the top right once you register.</h2>
     </form>
     <p class="error">{{registerError}}</p>
   </div>
